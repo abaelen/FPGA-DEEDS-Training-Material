@@ -1,0 +1,32 @@
+(Info) ************************************************************************
+(Info) Deeds VHDL converter (ver. 2.30.041) is running...
+(Info) Convertion started (15:48:37, 27/12/2020) on file:
+(Info) --> "C:\Users\Gebruiker\Documents\Deeds\Lesson 13 - 2bit comparator.pbs"
+(Info) ------------------------------------------------------------------------
+(Info) Converting schematic file "Lesson 13 - 2bit comparator.pbs" into VHDL
+(Info) --> Top level VHDL file (renamed to be compliant): "Lesson_13_2bit_comparator.vhd"
+(Info) Extracting and Coding VHDL components
+(Info) VHDL components coded (file: "Components.vhd", 2324 bytes)
+(Info) Processing Input and Output Signals
+(Warning) Input "A1" [Id#1] renamed to "iA1"
+(Warning) Input "B0" [Id#2] renamed to "iB0"
+(Warning) Input "B1" [Id#3] renamed to "iB1"
+(Warning) Input "A0" [Id#170] renamed to "iA0"
+(Warning) Output "G" [Id#108] renamed to "oG"
+(Warning) Output "E" [Id#109] renamed to "oE"
+(Warning) Output "L" [Id#216] renamed to "oL"
+(Info) 4 Native Input(s), 3 Native Output(s) processed.
+(Info) 0 Added Input(s), 0 Added Output(s), 0 Default Output(s).
+(Info) Top level structural VHDL description coded (file "Lesson_13_2bit_comparator.vhd", 4155 bytes)
+(Info) ------------------------------------------------------------------------
+(Info) Saving all the VHDL files in the subfolder:
+(Info) --> "C:\Users\Gebruiker\Documents\Deeds\Lesson_13_2bit_comparator_VHDL"
+(Info)   |--- "Components.vhd" file saved.
+(Info)   |--- "Lesson_13_2bit_comparator.vhd" file saved.
+(Info) ------------------------------------------------------------------------
+(Info) ------------------------------------------------------------------------
+(Info) This message list saved on file:
+(Info) --> "C:\Users\Gebruiker\Documents\Deeds\Lesson_13_2bit_comparator_VHDL\ReportMessages.txt"
+(Info) ------------------------------------------------------------------------
+(Info) All files saved! VHDL conversion ended (15:48:37, 27/12/2020)
+(Info) ************************************************************************

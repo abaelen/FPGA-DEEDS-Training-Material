@@ -1,0 +1,35 @@
+(Info) ************************************************************************
+(Info) Deeds VHDL converter (ver. 2.30.041) is running...
+(Info) Convertion started (16:24:04, 28/12/2020) on file:
+(Info) --> "C:\Users\Gebruiker\Documents\Deeds\Lesson 25 - Shift register with clock divide.pbs"
+(Info) ------------------------------------------------------------------------
+(Info) Converting schematic file "Lesson 25 - Shift register with clock divide.pbs" into VHDL
+(Info) --> Top level VHDL file (renamed to be compliant): "Lesson_25_Shift_register_with_clock_divide.vhd"
+(Info) Extracting and Coding VHDL components
+(Info) VHDL components coded (file: "Components.vhd", 8598 bytes)
+(Info) Processing Input and Output Signals
+(Warning) Input "InL" [Id#40] renamed to "iInL"
+(Warning) Input "CLK" [Id#99] renamed to "iCLK"
+(Warning) Input "En" [Id#101] renamed to "iEn"
+(Warning) Input "S8" [Id#223] renamed to "iS8"
+(Warning) Output "Q0" [Id#87] renamed to "oQ0"
+(Warning) Output "L" [Id#91] renamed to "oL"
+(Warning) Output "Clk16" [Id#93] renamed to "oClk16"
+(Warning) Output "Q" [Id#100] renamed to "oQ"
+(Warning) Output "Pulse16" [Id#103] renamed to "oPulse16"
+(Warning) Output "L2" [Id#277] renamed to "oL2"
+(Info) 4 Native Input(s), 6 Native Output(s) processed.
+(Info) 0 Added Input(s), 0 Added Output(s), 0 Default Output(s).
+(Info) Top level structural VHDL description coded (file "Lesson_25_Shift_register_with_clock_divide.vhd", 7959 bytes)
+(Info) ------------------------------------------------------------------------
+(Info) Saving all the VHDL files in the subfolder:
+(Info) --> "C:\Users\Gebruiker\Documents\Deeds\Lesson_25_Shift_register_with_clock_divide_VHDL"
+(Info)   |--- "Components.vhd" file saved.
+(Info)   |--- "Lesson_25_Shift_register_with_clock_divide.vhd" file saved.
+(Info) ------------------------------------------------------------------------
+(Info) ------------------------------------------------------------------------
+(Info) This message list saved on file:
+(Info) --> "C:\Users\Gebruiker\Documents\Deeds\Lesson_25_Shift_register_with_clock_divide_VHDL\ReportMessages.txt"
+(Info) ------------------------------------------------------------------------
+(Info) All files saved! VHDL conversion ended (16:24:04, 28/12/2020)
+(Info) ************************************************************************
