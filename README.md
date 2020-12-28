@@ -1,4 +1,4 @@
-# Electronic Design DEEDS Training Material
+# FPGA - Electronic Design DEEDS Training Material
  Covers the DEEDS training material for electronic Design
 
 Electronic design application DEEDS allows to simulate and create electronic designs.
