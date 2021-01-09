@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jan  7 20:46:32 2021
+# Process ID: 24544
+# Current directory: C:/Users/Gebruiker/Documents/OneDrive/Elec Projects/Github/FPGA-Electronic-Design/Cora Z7S - designs/Blinking_LED_DEEDS/Blinking_LED_DEEDS.runs/synth_1
+# Command line: vivado.exe -log Blinking_led.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Blinking_led.tcl
+# Log file: C:/Users/Gebruiker/Documents/OneDrive/Elec Projects/Github/FPGA-Electronic-Design/Cora Z7S - designs/Blinking_LED_DEEDS/Blinking_LED_DEEDS.runs/synth_1/Blinking_led.vds
+# Journal file: C:/Users/Gebruiker/Documents/OneDrive/Elec Projects/Github/FPGA-Electronic-Design/Cora Z7S - designs/Blinking_LED_DEEDS/Blinking_LED_DEEDS.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Blinking_led.tcl -notrace

@@ -1,0 +1,45 @@
+(Info) ************************************************************************
+(Info) Deeds VHDL converter (ver. 2.30.041) is running...
+(Info) Convertion started (12:44:03, 29/12/2020) on file:
+(Info) --> "C:\Users\Gebruiker\Documents\OneDrive\Elec Projects\Github\FPGA-Electronic-Design\Designs\Lesson 26 - Measuring a pulse duration final.pbs"
+(Info) ------------------------------------------------------------------------
+(Info) Converting Finite State Machines
+(Info) ------------------------------------------------------------------------
+(Info) Finite State Machine (FSM): "Lesson 26 - Pulse Measure FSM_A.fsm" (33712 bytes)
+(Info) File sent to Deeds-FsM for VHDL conversion
+(Info) --> VHDL Entity renamed as: "Fsm1_Lesson_26_Pulse_Measure_FSM_A"
+(Info) --> VHDL code returned from Deeds-FsM (file: "Fsm1_Lesson_26_Pulse_Measure_FSM_A.vhd", 3439 bytes)
+(Info) ------------------------------------------------------------------------
+(Info) Finite State Machine (FSM): "Lesson 26 - Pulse Measure FSM_B.fsm" (55000 bytes)
+(Info) File sent to Deeds-FsM for VHDL conversion
+(Info) --> VHDL Entity renamed as: "Fsm2_Lesson_26_Pulse_Measure_FSM_B"
+(Info) --> VHDL code returned from Deeds-FsM (file: "Fsm2_Lesson_26_Pulse_Measure_FSM_B.vhd", 4394 bytes)
+(Info) ------------------------------------------------------------------------
+(Info) Converting schematic file "Lesson 26 - Measuring a pulse duration final.pbs" into VHDL
+(Info) --> Top level VHDL file (renamed to be compliant): "Lesson_26_Measuring_a_pulse_duration_final.vhd"
+(Info) Extracting and Coding VHDL components
+(Info) VHDL components coded (file: "Components.vhd", 3148 bytes)
+(Info) Processing Input and Output Signals
+(Warning) Input "CLK" [Id#1] renamed to "iCLK"
+(Warning) Input "EN" [Id#6] renamed to "iEN"
+(Warning) Input "!RES" [Id#21] renamed to "inRES"
+(Warning) Output "SER" [Id#90] renamed to "oSER"
+(Warning) Output "BSY" [Id#104] renamed to "oBSY"
+(Warning) Output "RES" [Id#116] renamed to "oRES"
+(Info) 3 Native Input(s), 3 Native Output(s) processed.
+(Info) 0 Added Input(s), 0 Added Output(s), 0 Default Output(s).
+(Info) Top level structural VHDL description coded (file "Lesson_26_Measuring_a_pulse_duration_final.vhd", 5200 bytes)
+(Info) ------------------------------------------------------------------------
+(Info) Saving all the VHDL files in the subfolder:
+(Info) --> "C:\Users\Gebruiker\Documents\OneDrive\Elec Projects\Github\FPGA-Electronic-Design\Designs\Lesson_26_Measuring_a_pulse_duration_final_VHDL"
+(Info)   |--- "Fsm1_Lesson_26_Pulse_Measure_FSM_A.vhd" file saved.
+(Info)   |--- "Fsm2_Lesson_26_Pulse_Measure_FSM_B.vhd" file saved.
+(Info)   |--- "Components.vhd" file saved.
+(Info)   |--- "Lesson_26_Measuring_a_pulse_duration_final.vhd" file saved.
+(Info) ------------------------------------------------------------------------
+(Info) ------------------------------------------------------------------------
+(Info) This message list saved on file:
+(Info) --> "C:\Users\Gebruiker\Documents\OneDrive\Elec Projects\Github\FPGA-Electronic-Design\Designs\Lesson_26_Measuring_a_pulse_duration_final_VHDL\ReportMessages.txt"
+(Info) ------------------------------------------------------------------------
+(Info) All files saved! VHDL conversion ended (12:44:05, 29/12/2020)
+(Info) ************************************************************************

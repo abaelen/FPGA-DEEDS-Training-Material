@@ -1,0 +1,58 @@
+******* DMC8 Project File *******
+* If you read this message, you need to install the last version of Deeds! *
+FVR 2
+DMC 1
+ROM 5
+RAM 5
+POH 7
+POG 6
+POF 5
+POE 4
+POD 3
+POC 2
+POB 1
+POA 0
+PIH 7
+PIG 6
+PIF 5
+PIE 4
+PID 3
+PIC 2
+PIB 1
+PIA 0
+******* DMC8 Project File *******
+;-----------------------------------------------------------------
+; Analysis and tracing of a introductory arithmetic program
+;-----------------------------------------------------------------
+; Authors: <name1>, <name2>
+;
+	ORG	0000h
+	JP	0100h
+	ORG	0100h
+;
+START:	LD	HL,0150h	;Load ROM address 150h into HL pointer
+	LD	B,16	;Load integer 16 into B
+	LD	DE,0000h	;Initialize registers D and E
+;			;Enter loop
+LOOP:	LD	A,E	;Load E in A
+	ADD	A,(HL)	;Add content pointed by HL to A (ie. E+(HL))
+	JP	NC,NO_CARRY	;Jump to No_carry code in case Carry over flag is zero (ie. result on A or D <> 256)
+	INC	D	;Increase D (limit the loop to max 256 iterations)
+;			;In case Carry over flag is zero, execute below code
+NO_CARRY:	LD	E,A	;Load A (ie. E+(HL) into E)
+	INC	HL	;Increase pointer HL
+	DEC	B	;Decrease B
+	JP	NZ,LOOP	;Repeat as long as B is non zero (ie. 16 times)
+;			;After execution of Loop
+	LD	HL,8000h	;Load 8000h ROM address into HL pointer
+	LD	(HL),E	;Load E value into the ROM at address 8000h
+	INC	HL	;Increase HL pointer with 1
+	LD	(HL),D	;Load D value into the ROM at address 8001h
+	HALT	
+;
+;-----------------------------------------------------------------
+; Array of constants (16 items), allocated in ROM:
+	ORG	0150h
+ARRAY:	DB	01h,45h,23h,12h,03h,00h,23h,0AAh,0BBh
+	DB	03h,00h,23h,12h,41h,0AAh,0BBh,01h,45h
+;-----------------------------------------------------------------

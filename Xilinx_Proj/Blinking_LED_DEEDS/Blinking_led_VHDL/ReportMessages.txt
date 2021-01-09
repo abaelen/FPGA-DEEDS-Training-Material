@@ -1,0 +1,25 @@
+(Info) ************************************************************************
+(Info) Deeds VHDL converter (ver. 2.30.041) is running...
+(Info) Convertion started (13:52:19, 3/01/2021) on file:
+(Info) --> "C:\Users\Gebruiker\Documents\OneDrive\Elec Projects\Github\FPGA-Electronic-Design\Cora Z7S - designs\Blinking led.pbs"
+(Info) ------------------------------------------------------------------------
+(Info) Converting schematic file "Blinking led.pbs" into VHDL
+(Info) --> Top level VHDL file (renamed to be compliant): "Blinking_led.vhd"
+(Info) Extracting and Coding VHDL components
+(Info) Processing Input and Output Signals
+(Warning) Input "CLK" [Id#1] renamed to "iCLK"
+(Warning) Output "LED" [Id#2] renamed to "oLED"
+(Info) 1 Native Input(s), 1 Native Output(s) processed.
+(Info) 0 Added Input(s), 0 Added Output(s), 0 Default Output(s).
+(Info) Top level structural VHDL description coded (file "Blinking_led.vhd", 1136 bytes)
+(Info) ------------------------------------------------------------------------
+(Info) Saving all the VHDL files in the subfolder:
+(Info) --> "C:\Users\Gebruiker\Documents\OneDrive\Elec Projects\Github\FPGA-Electronic-Design\Cora Z7S - designs\Blinking_led_VHDL"
+(Info)   |--- "Blinking_led.vhd" file saved.
+(Info) ------------------------------------------------------------------------
+(Info) ------------------------------------------------------------------------
+(Info) This message list saved on file:
+(Info) --> "C:\Users\Gebruiker\Documents\OneDrive\Elec Projects\Github\FPGA-Electronic-Design\Cora Z7S - designs\Blinking_led_VHDL\ReportMessages.txt"
+(Info) ------------------------------------------------------------------------
+(Info) All files saved! VHDL conversion ended (13:52:19, 3/01/2021)
+(Info) ************************************************************************

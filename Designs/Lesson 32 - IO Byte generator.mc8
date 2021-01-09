@@ -1,0 +1,98 @@
+******* DMC8 Project File *******
+* If you read this message, you need to install the last version of Deeds! *
+FVR 2
+DMC 1
+ROM 5
+RAM 5
+POH 7
+POG 6
+POF 5
+POE 4
+POD 3
+POC 2
+POB 1
+POA 0
+PIH 7
+PIG 6
+PIF 5
+PIE 4
+PID 3
+PIC 2
+PIB 1
+PIA 0
+******* DMC8 Project File *******
+	ORG	0000h
+	JP	0100h
+	ORG	0100h
+BEGIN:
+	LD	A,0
+	LD	B,0
+	LD	C,0
+	LD	IX,08000h
+	LD	IY,08001h
+	LD	(IX),0
+	LD	(IY),0
+LOOP:
+	IN	A,(00h)
+	CP	0
+	CALL	Z,ERROR
+	IN	A,(00h)
+	CP	1
+	CALL	Z,COUNTUP
+	IN	A,(00h)
+	CP	1
+	CALL	NZ,COUNTUPRST
+	IN	A,(00h)
+	CP	2
+	CALL	Z,COUNTDWN
+	IN	A,(00h)
+	CP	2
+	CALL	NZ,COUNTDWNRST
+	LD	SP,0FFFFh
+	CALL	LOOP
+	HALT
+COUNTUP:	
+	INC	B
+	LD	A,B
+	CP	20
+	CALL Z,UPOUT
+	RET
+UPOUT:
+	LD	A,(IX)
+	INC	A
+	LD	(IX),A
+	OUT	(02h),A
+	LD	B,0
+	RET
+COUNTUPRST:	
+	LD	B,0
+	RET
+COUNTDWN:
+	INC	C
+	LD	A,C
+	CP	20
+	CALL	Z,DWNOUT
+	RET
+DWNOUT:
+	LD	A,(IX)
+	DEC	A
+	LD	(IX),A
+	OUT	(02h),A
+	LD	C,0
+	RET
+COUNTDWNRST:
+	LD	C,0
+	RET
+
+ERROR:
+BEGINEROR:	
+	LD	A,128
+	OUT	(03h),A
+LOOPERROR:	IN	A,(00h)
+	CP	0
+	JP	Z,LOOPERROR
+ENDERROR:
+	LD	A,0
+	OUT	(03h),A
+	RET
+	

@@ -1,0 +1,70 @@
+******* DMC8 Project File *******
+* If you read this message, you need to install the last version of Deeds! *
+FVR 2
+DMC 1
+ROM 5
+RAM 5
+POH 7
+POG 6
+POF 5
+POE 4
+POD 3
+POC 2
+POB 1
+POA 0
+PIH 7
+PIG 6
+PIF 5
+PIE 4
+PID 3
+PIC 2
+PIB 1
+PIA 0
+******* DMC8 Project File *******
+;-----------------------------------------------------------------
+; Analysis and tracing of a simple de-cryptographic program
+;-----------------------------------------------------------------
+; Authors: <name1>, <name2>
+;
+RAM	EQU	8000h	;Define a constant
+MASK	EQU	0AAh	;Define a constant?
+;
+	ORG	0000h
+	JP	0100h
+	ORG	0100h     
+;
+START:	LD	HL,MESSAGE	;Load Message into HL pointer
+	LD	BC,LAST	;Load 'Last' into BC, ie. initalize BC
+	LD	DE,RAM	;Load 'RAM' into DE, ie. Initialize DE with AAh
+;			;Enter loop
+LOOP:	LD	A,(HL)	;Load HL pointed content(ie. Message) into A
+	XOR	MASK	;Xor A with 'Mask', ie. (Message[0]+0AAh)
+	LD	(DE),A	;Load result into DE pointed memory location
+	INC	DE	;Increase DE pointer
+	INC	HL	;Increase HL pointer, ie. Message[i+1]
+;
+	LD	A,L	;Test if L = C (ie. LSB of End of message Address)
+	XOR	C	;Xor A with C (ie. Message[i+1] + C)
+	JP	NZ,LOOP	;if C = L: then fall through to MSB testing
+	LD	A,H	;Test if H = B (ie. MSB of End of message Address)
+	XOR	B	;if B = H: then end of message is hit
+	JP	NZ,LOOP 	;Jump to loop in case of Zero flag non zero
+;
+	HALT	
+;-----------------------------------------------------------------
+	ORG	0130h     						;Define Bytes array starting from 0130h
+MESSAGE:	DB	0E4h,0CFh,0C6h,08Ah,0C7h,0CFh,0D0h,0D0h		;Dante
+	DB	0C5h,08Ah,0CEh,0CFh,0C6h,08Ah,0C9h,0CBh
+	DB	0C7h,0C7h,0C3h,0C4h,08Ah,0CEh,0C3h,08Ah
+	DB	0C4h,0C5h,0D9h,0DEh,0D8h,0CBh,08Ah,0DCh
+	DB	0C3h,0DEh,0CBh,08Ah,0C7h,0C3h,08Ah,0D8h
+	DB	0C3h,0DEh,0D8h,0C5h,0DCh,0CBh,0C3h,08Ah
+	DB	0DAh,0CFh,0D8h,08Ah,0DFh,0C4h,0CBh,08Ah
+	DB	0D9h,0CFh,0C6h,0DCh,0CBh,08Ah,0C5h,0D9h
+	DB	0C9h,0DFh,0D8h,0CBh,08Ah,0C9h,0C2h,043h
+	DB	08Ah,0C6h,0CBh,08Ah,0CEh,0C3h,0D8h,0C3h
+	DB	0DEh,0DEh,0CBh,08Ah,0DCh,0C3h,0CBh,08Ah
+	DB	0CFh,0D8h,0CBh,08Ah,0D9h,0C7h,0CBh,0D8h
+	DB	0D8h,0C3h,0DEh,0CBh,084h
+LAST:	DB	0
+;-----------------------------------------------------------------

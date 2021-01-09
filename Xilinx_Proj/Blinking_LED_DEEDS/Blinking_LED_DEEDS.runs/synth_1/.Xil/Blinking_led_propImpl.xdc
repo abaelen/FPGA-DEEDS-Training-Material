@@ -1,0 +1,5 @@
+set_property SRC_FILE_INFO {cfile:{C:/Users/Gebruiker/Documents/OneDrive/Elec Projects/Github/FPGA-Electronic-Design/Cora Z7S - designs/Blinking_LED_DEEDS/Blinking_LED_DEEDS.srcs/constrs_1/imports/XDC-master/Cora-Z7-07S-Master.xdc} rfile:../../../Blinking_LED_DEEDS.srcs/constrs_1/imports/XDC-master/Cora-Z7-07S-Master.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:12 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN H16 IOSTANDARD LVCMOS33} [get_ports iCLK]
+set_property src_info {type:XDC file:1 line:97 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN U14 IOSTANDARD LVCMOS33} [get_ports oLED]

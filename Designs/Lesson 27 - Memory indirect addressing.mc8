@@ -1,0 +1,35 @@
+******* DMC8 Project File *******
+* If you read this message, you need to install the last version of Deeds! *
+FVR 2
+DMC 1
+ROM 5
+RAM 5
+POH 7
+POG 6
+POF 5
+POE 4
+POD 3
+POC 2
+POB 1
+POA 0
+PIH 7
+PIG 6
+PIF 5
+PIE 4
+PID 3
+PIC 2
+PIB 1
+PIA 0
+******* DMC8 Project File *******
+;(c) Memory direct addressing
+	ORG	0000h
+	JP	0100h
+	ORG	0100h
+PROG_C:	LD	HL,0C350h
+	LD	(HL),0037h
+	INC	HL
+	LD	(HL),0037h
+	INC	HL
+	LD	(HL),0014h
+	HALT
+	

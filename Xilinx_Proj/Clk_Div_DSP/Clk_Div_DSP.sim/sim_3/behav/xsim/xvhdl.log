@@ -1,0 +1,15 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/X_projects/Cnt_v1/Cnt_v1.srcs/sim_3/imports/new/Components.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Clock'
+INFO: [VRFC 10-3107] analyzing entity 'Reset'
+INFO: [VRFC 10-3107] analyzing entity 'Not_gate'
+INFO: [VRFC 10-3107] analyzing entity 'Enable'
+INFO: [VRFC 10-3107] analyzing entity 'Output'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/X_projects/Cnt_v1/Cnt_v1.srcs/sources_1/new/Components.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Clock'
+INFO: [VRFC 10-3107] analyzing entity 'Reset'
+INFO: [VRFC 10-3107] analyzing entity 'Not_gate'
+INFO: [VRFC 10-3107] analyzing entity 'Enable'
+INFO: [VRFC 10-3107] analyzing entity 'Output'
+WARNING: [VRFC 10-3608] overwriting existing secondary unit 'behavioral' [C:/X_projects/Cnt_v1/Cnt_v1.srcs/sources_1/new/Components.vhd:136]
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/X_projects/Cnt_v1/Cnt_v1.srcs/sources_1/new/Counter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Counter'

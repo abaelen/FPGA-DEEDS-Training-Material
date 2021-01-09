@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Blinking_LED_DEEDS.srcs/sources_1/new/Components.vhd" \
+"../../../../Blinking_LED_DEEDS.srcs/sources_1/new/Blinking.vhd" \
+
+# Do not sort compile order
+nosort

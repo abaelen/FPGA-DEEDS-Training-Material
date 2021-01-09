@@ -1,0 +1,68 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Jan  9 12:10:10 2021
+| Host         : Gebruiker-PC running 64-bit major release  (build 9200)
+| Command      : report_methodology -file Counter_methodology_drc_routed.rpt -pb Counter_methodology_drc_routed.pb -rpx Counter_methodology_drc_routed.rpx
+| Design       : Counter
+| Device       : xc7z007sclg400-1
+| Speed File   : -1
+| Design State : Fully Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 6
++-----------+------------------+-------------------------------+------------+
+| Rule      | Severity         | Description                   | Violations |
++-----------+------------------+-------------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 1          |
+| LUTAR-1   | Warning          | LUT drives async reset alert  | 1          |
+| TIMING-18 | Warning          | Missing input or output delay | 1          |
+| TIMING-20 | Warning          | Non-clocked latch             | 3          |
++-----------+------------------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-17#1 Critical Warning
+Non-clocked sequential cell  
+The clock pin cENABLE/Enable.tr_reg/C is not reached by a timing clock
+Related violations: <none>
+
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell cRESET/Reset.tr_reg_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) cRESET/Reset.tr_reg/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An output delay is missing on ck_io0 relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch cRESET/Reset.pu_reg cannot be properly analyzed as its control pin cRESET/Reset.pu_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch cRESET/Reset.tr_reg cannot be properly analyzed as its control pin cRESET/Reset.tr_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch cRESET/o_reg cannot be properly analyzed as its control pin cRESET/o_reg/G is not reached by a timing clock
+Related violations: <none>
+
+

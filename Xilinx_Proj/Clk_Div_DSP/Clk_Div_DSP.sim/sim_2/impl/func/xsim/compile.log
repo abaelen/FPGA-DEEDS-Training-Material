@@ -1,0 +1,5 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/X_projects/Cnt/Cnt.sim/sim_2/impl/func/xsim/Counter_func_impl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Enable'
+INFO: [VRFC 10-3107] analyzing entity 'Reset'
+INFO: [VRFC 10-3107] analyzing entity 'unimacro_COUNTER_TC_MACRO'
+INFO: [VRFC 10-3107] analyzing entity 'Counter'

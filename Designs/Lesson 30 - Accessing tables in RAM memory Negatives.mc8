@@ -1,0 +1,90 @@
+******* DMC8 Project File *******
+* If you read this message, you need to install the last version of Deeds! *
+FVR 2
+DMC 2
+ROM 5
+RAM 5
+POH 7
+POG 6
+POF 5
+POE 4
+POD 3
+POC 2
+POB 1
+POA 0
+PIH 7
+PIG 6
+PIF 5
+PIE 4
+PID 3
+PIC 2
+PIB 1
+PIA 0
+******* DMC8 Project File *******
+;Accessing tables in RAM Memory
+;===============================
+
+;Constants
+UPPER EQU 128
+
+;Program hook
+	org	0000h
+	JP	0100h
+	ORG	0100h
+;
+;--------Table 1 -----------------------
+BEGIN1:	LD	A,UPPER	;Initialize A (worker),B(value),C(counter)
+	LD	B,0	;Initialize to 0 (value)
+	LD	C,0	;Initialize to 0 (Counter)
+	LD	HL,08000h	;Set pointer to first address location
+LOOP1:	LD	(HL),B	;HL[B]=B
+	INC	B	;B+=1
+	INC	HL	;HL+=1
+			;Prepare loop test
+	INC	C	;Increment counter
+	LD	A,C	;Reload temp stored A
+	XOR	UPPER	;C=A?=128
+	JP	NZ,LOOP1	;Repeat loop if not equal
+;--------Table 2 -----------------------	
+BEGIN2:	LD	A,UPPER	;Initialize A (worker),B(value),C(counter)
+	LD	B,0	;Initialize to 0 (value)
+	LD	C,0	;Initialize to 0 (Counter)
+	LD	D,0	;Initialize to 0 (Complement of B)
+	LD	HL,08080h	;Set pointer to first address location
+LOOP2:	LD	(HL),D	;HL[B]=B
+	INC	HL	;HL+=1
+;--------Complement calc----------------
+	INC	B	;B+=1
+	LD	A,0	;Calculate complement
+	SUB	B	;Complement = 0-B
+	LD	D,A	;Memorize complement
+;--------End Calc complement------------
+			;Prepare loop test
+	INC	C	;Increment counter
+	LD	A,C	;Reload temp stored A
+	XOR	UPPER	;C=A?=128
+	JP	NZ,LOOP2	;Repeat loop if not equal
+;--------Table 3 -----------------------	
+BEGIN3:	LD	A,UPPER	;Initialize A (worker),B(value),C(counter)
+	LD	B,0	;Initialize to 0 (value)
+	LD	C,0	;Initialize to 0 (Counter)
+	LD	HL,08100h	;Set pointer to first address location
+	LD	IX,08000h	;Load address of first argument into IX
+	LD	IY,08080h	;Load address of second argument into IY
+LOOP3:	
+;--------Calc Sum------------------------
+	LD	A,(IX)	;Load contents of IX into A for sum
+	ADD	A,(IY)	;Add contents of IY to A for sum
+	LD	(HL),A	;Load result of A into the contents of HL pointer
+;--------End Calc sum------------
+	INC	C	;Increase the loop counter
+	INC	HL	;Increase address pointer for result
+	INC	IX	;Increase address pointer of first argument
+	INC	IY	;Increase address pointer of second argument
+	LD	A,C	;Load C into A for Loop iteration condition check
+	XOR	UPPER	;C=A?=128
+	JP	NZ,LOOP3	;Repeat loop if not equal
+;
+END: 	HALT
+	
+	

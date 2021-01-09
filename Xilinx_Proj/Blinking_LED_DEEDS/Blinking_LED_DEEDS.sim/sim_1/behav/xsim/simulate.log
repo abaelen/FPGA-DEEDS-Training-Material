@@ -1,0 +1,7 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+Error : [Unisim DSP48E1-10] Attribute USE_MULT is set to "NONE" and MREG is set to 1. MREG must be set to 0 when the multiplier is not used. Instance :Blinking_led:cCOUNTER_TC:v5:DSP48E_1:D1:
+Error: Attribute Error(s) encountered
+Time: 0 ps  Iteration: 0  Process: /Blinking_led/cCOUNTER_TC/v5/DSP48E_1/D1/prcs_init  File: C:/Xilinx/Vivado/2020.2/data/vhdl/src/unisims/primitive/DSP48E1.vhd
+FATAL_ERROR: Iteration limit 10000 is reached. Possible zero delay oscillation detected where simulation time can not advance. Please check your source code. Note that the iteration limit can be changed using switch -maxdeltaid.
+Time: 0 ps  Iteration: 10000

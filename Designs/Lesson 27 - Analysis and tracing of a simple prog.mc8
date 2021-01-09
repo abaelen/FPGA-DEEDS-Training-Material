@@ -1,0 +1,51 @@
+******* DMC8 Project File *******
+* If you read this message, you need to install the last version of Deeds! *
+FVR 2
+DMC 1
+ROM 5
+RAM 5
+POH 7
+POG 6
+POF 5
+POE 4
+POD 3
+POC 2
+POB 1
+POA 0
+PIH 7
+PIG 6
+PIF 5
+PIE 4
+PID 3
+PIC 2
+PIB 1
+PIA 0
+******* DMC8 Project File *******
+;-----------------------------------------------------------------
+; Analysis and tracing of an introductory assembly program
+;-----------------------------------------------------------------
+; Authors: <name1>, <name2>
+;
+	ORG	0000h
+	JP	0100h 
+	ORG	0100h
+; 
+BEGIN:	LD	HL,08010h 	;Load Addres 8010h into HL
+;
+	LD	B,0Eh	;Load  Eh into B
+	LD	A,00h	;Load Oh into A
+LOOPUP:	LD	(HL),A	;Enter loop code, Load A into HL pointed address, ie. init
+	INC	HL	;Increase HL pointer address
+	DEC	B	;Decrease B with 1 (starting from 14)
+	JP	NZ,LOOPUP	;As long as the Zero Flag is not 1, jump back to Loopup
+;			;Provided B is the only moving parameter, this loop will repeat 15 times
+			;This loop will functionally initiatalize first 15 memory bytes to zero at 8010h offset
+	LD	B,0Eh	;Reload B with 14
+	LD	A,0FFh	;Reload A with FF
+LOOPDOWN:	DEC	HL	;Decrease HL pointer address with one
+	LD	(HL),A	;Load A into HL pointed address
+	DEC	B	;Decrease B with one
+	JP	NZ,LOOPDOWN	;Jump to Loopdown as long as the Zero flag is not set (ie. first 15 times)
+;			;
+			;This loop will functionally initialize first 15 memory bytes to FF at 8010h offset
+	JP	BEGIN	;Endless loop

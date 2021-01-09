@@ -1,0 +1,64 @@
+******* DMC8 Project File *******
+* If you read this message, you need to install the last version of Deeds! *
+FVR 2
+DMC 1
+ROM 5
+RAM 5
+POH 7
+POG 6
+POF 5
+POE 4
+POD 3
+POC 2
+POB 1
+POA 0
+PIH 7
+PIG 6
+PIF 5
+PIE 4
+PID 3
+PIC 2
+PIB 1
+PIA 0
+******* DMC8 Project File *******
+;-----------------------------------------------------------------
+; String handling in assembly
+;    a) String copy (from ROM to RAM)
+;-----------------------------------------------------------------
+; Authors: <name1>, <name2>
+;
+NULL	EQU	00h
+;
+	ORG	0000h
+	JP	0100h	;(link to the Hardware RESET)
+	ORG	0100h
+;
+START:	;<... stack init ...>
+	;...
+	;...
+	LD	HL, 08000h	;<load in HL a destination memory address>
+	CALL COPYSTR
+	;...
+	;...
+	LD	HL, 08010h	;<load in HL another destination memory address>
+	CALL COPYSTR
+	;...
+	;...
+	LD	HL, 08020h	;<load in HL another destination memory address>
+	CALL COPYSTR
+	;...
+	HALT 	
+;
+;<write here the copy string subprogram>
+COPYSTR:	LD	DE,STR	;<init DE as pointer to the source location>
+LOOP:	LD	A,(DE)	;<read a memory byte, using DE addressing> 
+	LD	(HL),A	;<write the memory byte, using HL addressing> 
+	CP	0	;Set flag without altering A
+	INC	HL
+	INC	DE	;<increment HL and DE>
+	JP	NZ,LOOP	;<check if the transferred char is a NULL, exit if yes>
+	;<loop again if not>
+	RET
+;
+;example of string to be copied:
+STR:	DB "ABCDEFGH",NULL

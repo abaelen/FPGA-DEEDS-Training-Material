@@ -1,0 +1,154 @@
+******* DMC8 Project File *******
+* If you read this message, you need to install the last version of Deeds! *
+FVR 2
+DMC 1
+ROM 5
+RAM 5
+POH 7
+POG 6
+POF 5
+POE 4
+POD 3
+POC 2
+POB 1
+POA 0
+PIH 7
+PIG 6
+PIF 5
+PIE 4
+PID 3
+PIC 2
+PIB 1
+PIA 0
+******* DMC8 Project File *******
+S	EQU	0111b
+CLR	EQU	1000b
+CLK	EQU	10000b
+
+	ORG	0000h
+	JP	0100h
+	ORG	0100h
+
+BEGIN:	LD	SP,0FFFFh	;Stack init
+	LD	A,0
+	LD	B,0
+	LD	C,0
+	LD	D,0
+	LD	H,0
+	LD	L,0
+
+LOOP:	
+	IN	A,(01h)
+	AND	CLK
+	CP	0
+	CALL	NZ,EDGE
+	JP	LOOP
+	HALT
+
+EDGE:
+	CALL	PORTSCAN
+	CALL	ACTION
+	RET
+PORTSCAN:
+	IN	A,(01h)	;Put IB in B
+	LD	B,A	;
+	IN	A,(02h)	;Put IC in C
+	LD	C,A
+	IN	A,(03h)	;Put ID in D
+	LD	D,A
+	RET
+	
+ACTION:
+	LD	A,B	;Load B into A
+	AND	S	
+	CP	0	;Idle Mode?
+	CALL	Z,IDLE
+	LD	A,B	;Load B into A
+	AND	S
+	CP	1	;Parallel register
+	CALL	Z,PARALLEL
+	LD	A,B	;Load B into A
+	AND	S
+	CP	2	;Left rotate
+	CALL	Z,ROTLEFT
+	LD	A,B	;Load B into A
+	AND	S
+	CP	3	;Right rotate
+	CALL	Z,ROTRIGHT
+	LD	A,B	;Load B into A
+	AND	S
+	CP	4	;Cyclic sync count up one
+	CALL	Z,CYCUPONE
+	LD	A,B	;Load B into A
+	AND	S
+	CP	5	;Cyclic sync count up two
+	CALL	Z,CYCUPTWO
+	LD	A,B	;Load B into A
+	AND	S
+	CP	6	;Cyclic sync count down one
+	CALL	Z,CYCDWNONE
+	LD	A,B	;Load B into A
+	AND	S
+	CP	7	;Cyclic sync count down two
+	CALL	Z,CYCDWNTWO
+	RET
+IDLE:
+	RET
+
+
+PARALLEL:
+	LD	H,C
+	LD	L,D
+	CALL	WRITEOUTPUT	
+	RET
+
+ROTLEFT:
+	RL	H
+	RL	L
+	JP 	NC,NOCAROVERL
+	LD	A,H
+	SET	0,A
+	LD	H,A
+	AND	A	
+NOCAROVERL:	CALL WRITEOUTPUT	
+	RET
+
+ROTRIGHT:
+	RR	L
+	RR	H
+	JP	NC,NOCAROVERR
+	LD	A,L
+	SET	7,A
+	LD	L,A
+	AND	A
+NOCAROVERR:	CALL WRITEOUTPUT	
+	RET
+
+CYCUPONE:
+	INC	HL
+	CALL WRITEOUTPUT
+	RET
+
+CYCUPTWO:
+	INC	HL
+	INC	HL
+	CALL 	WRITEOUTPUT
+	RET
+
+CYCDWNONE:
+	DEC	HL
+	CALL 	WRITEOUTPUT
+	RET
+
+CYCDWNTWO:
+	DEC	HL
+	DEC	HL
+	CALL 	WRITEOUTPUT
+	RET
+
+WRITEOUTPUT:
+	LD	A,H
+	OUT	(00h),A
+	LD	A,L
+	OUT	(01h),A
+	RET

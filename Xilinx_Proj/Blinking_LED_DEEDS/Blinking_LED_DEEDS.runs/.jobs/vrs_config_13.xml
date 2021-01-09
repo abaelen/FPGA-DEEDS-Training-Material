@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="Clock_clk_wiz_0_0_synth_1" LaunchDir="C:/Users/Gebruiker/Documents/OneDrive/Elec Projects/Github/FPGA-Electronic-Design/Cora Z7S - designs/Blinking_LED_DEEDS/Blinking_LED_DEEDS.runs/Clock_clk_wiz_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Clock_Blinking_led_0_0_synth_1" LaunchDir="C:/Users/Gebruiker/Documents/OneDrive/Elec Projects/Github/FPGA-Electronic-Design/Cora Z7S - designs/Blinking_LED_DEEDS/Blinking_LED_DEEDS.runs/Clock_Blinking_led_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

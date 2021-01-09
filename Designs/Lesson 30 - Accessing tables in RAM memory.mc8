@@ -1,0 +1,49 @@
+******* DMC8 Project File *******
+* If you read this message, you need to install the last version of Deeds! *
+FVR 2
+DMC 2
+ROM 5
+RAM 5
+POH 7
+POG 6
+POF 5
+POE 4
+POD 3
+POC 2
+POB 1
+POA 0
+PIH 7
+PIG 6
+PIF 5
+PIE 4
+PID 3
+PIC 2
+PIB 1
+PIA 0
+******* DMC8 Project File *******
+;Accessing tables in RAM Memory
+;===============================
+
+;Constants
+UPPER EQU 128
+
+;Program hook
+	org	0000h
+	JP	0100h
+	ORG	0100h
+;
+BEGIN:	LD	A,UPPER	;Initialize A (worker),B(value),C(counter)
+	LD	B,0	;Initialize to 1
+	LD	C,0
+	LD	HL,08000h	;Set pointer to first address location
+LOOP:	LD	(HL),B	;HL[B]=B
+	INC	B	;B+=1
+	INC	HL	;HL+=1
+			;Prepare loop test
+	INC	C	;Increment counter
+	LD	A,C	;Reload temp stored A
+	XOR	UPPER	;C=A?=128
+	JP	NZ,LOOP	;Repeat loop if not equal
+END:	HALT
+	
+	

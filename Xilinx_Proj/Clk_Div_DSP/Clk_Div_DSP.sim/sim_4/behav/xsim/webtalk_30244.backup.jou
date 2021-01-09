@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Jan  9 10:36:52 2021
+# Process ID: 30244
+# Current directory: C:/X_projects/Cnt_v1/Cnt_v1.sim/sim_4/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/X_projects/Cnt_v1/Cnt_v1.sim/sim_4/behav/xsim/xsim.dir/Counter_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/X_projects/Cnt_v1/Cnt_v1.sim/sim_4/behav/xsim/webtalk.log
+# Journal file: C:/X_projects/Cnt_v1/Cnt_v1.sim/sim_4/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/X_projects/Cnt_v1/Cnt_v1.sim/sim_4/behav/xsim/xsim.dir/Counter_behav/webtalk/xsim_webtalk.tcl -notrace

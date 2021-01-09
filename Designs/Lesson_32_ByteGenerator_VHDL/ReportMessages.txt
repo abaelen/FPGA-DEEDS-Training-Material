@@ -1,0 +1,35 @@
+(Info) ************************************************************************
+(Info) Deeds VHDL converter (ver. 2.30.041) is running...
+(Info) Convertion started (16:42:26, 30/12/2020) on file:
+(Info) --> "C:\Users\Gebruiker\Documents\OneDrive\Elec Projects\Github\FPGA-Electronic-Design\Designs\Lesson 32 - ByteGenerator.pbs"
+(Info) ------------------------------------------------------------------------
+(Info) Converting schematic file "Lesson 32 - ByteGenerator.pbs" into VHDL
+(Info) --> Top level VHDL file (renamed to be compliant): "Lesson_32_ByteGenerator.vhd"
+(Info) Extracting and Coding VHDL components
+(Info) VHDL DMC8 CPU transcripted (file: "DMC8.vhd", 112873 bytes)
+(Info) VHDL DMC8 Micro Computer description coded (file: "Microcomputer_Module.vhd", 24595 bytes)
+(Info) Processing Input and Output Signals
+(Warning) Input "!Reset" [Id#2] renamed to "inReset"
+(Warning) Input "Microcomputer Module" [Id#164] renamed to "Microcomputer_Module"
+(Warning) Input "!Down" [Id#165] renamed to "inDown"
+(Warning) Input "!Up" [Id#166] renamed to "inUp"
+(Warning) Input "DSW" [Id#189] renamed to "iDSW"
+(Warning) Output "BYTE (hex)" [Id#112] renamed to "oBYTE_bhexb"
+(Warning) Output "BYTE (bin)" [Id#114] renamed to "oBYTE_bbinb"
+(Warning) Output " Error" [Id#167] renamed to "oError"
+(Info) 5 Native Input(s), 3 Native Output(s) processed.
+(Info) 0 Added Input(s), 0 Added Output(s), 0 Default Output(s).
+(Info) Top level structural VHDL description coded (file "Lesson_32_ByteGenerator.vhd", 11195 bytes)
+(Info) ------------------------------------------------------------------------
+(Info) Saving all the VHDL files in the subfolder:
+(Info) --> "C:\Users\Gebruiker\Documents\OneDrive\Elec Projects\Github\FPGA-Electronic-Design\Designs\Lesson_32_ByteGenerator_VHDL"
+(Info)   |--- "DMC8.vhd" file saved.
+(Info)   |--- "Microcomputer_Module.vhd" file saved.
+(Info)   |--- "Lesson_32_ByteGenerator.vhd" file saved.
+(Info) ------------------------------------------------------------------------
+(Info) ------------------------------------------------------------------------
+(Info) This message list saved on file:
+(Info) --> "C:\Users\Gebruiker\Documents\OneDrive\Elec Projects\Github\FPGA-Electronic-Design\Designs\Lesson_32_ByteGenerator_VHDL\ReportMessages.txt"
+(Info) ------------------------------------------------------------------------
+(Info) All files saved! VHDL conversion ended (16:42:29, 30/12/2020)
+(Info) ************************************************************************

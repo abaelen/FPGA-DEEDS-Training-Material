@@ -1,0 +1,3 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/X_projects/Cnt_own/Cnt_own.sim/sim_1/impl/func/xsim/ClockDivider_func_impl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Counter'
+INFO: [VRFC 10-3107] analyzing entity 'ClockDivider'
