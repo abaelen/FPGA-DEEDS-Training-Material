@@ -1,0 +1,54 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.449057",
+   "Default View_TopLeft":"-984,0",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 3 -x 850 -y 20 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 3 -x 850 -y 40 -defaultsOSRD
+preplace port Vaux0_0 -pg 1 -lvl 0 -x -110 -y 20 -defaultsOSRD
+preplace port Vaux12_0 -pg 1 -lvl 0 -x -110 -y 140 -defaultsOSRD
+preplace port Vaux13_0 -pg 1 -lvl 0 -x -110 -y 160 -defaultsOSRD
+preplace port Vaux15_0 -pg 1 -lvl 0 -x -110 -y 180 -defaultsOSRD
+preplace port Vaux1_0 -pg 1 -lvl 0 -x -110 -y 40 -defaultsOSRD
+preplace port Vaux5_0 -pg 1 -lvl 0 -x -110 -y 60 -defaultsOSRD
+preplace port Vaux6_0 -pg 1 -lvl 0 -x -110 -y 80 -defaultsOSRD
+preplace port Vaux8_0 -pg 1 -lvl 0 -x -110 -y 100 -defaultsOSRD
+preplace port Vaux9_0 -pg 1 -lvl 0 -x -110 -y 120 -defaultsOSRD
+preplace port Vp_Vn_0 -pg 1 -lvl 0 -x -110 -y 200 -defaultsOSRD
+preplace port btns_2bits -pg 1 -lvl 3 -x 850 -y 60 -defaultsOSRD
+preplace portBus pwm_0 -pg 1 -lvl 3 -x 850 -y 80 -defaultsOSRD
+preplace inst PWM_0 -pg 1 -lvl 2 -x 560 -y 80 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 2 -x 560 -y 390 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 2 -x 560 -y 220 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 560 -y 640 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 2 -x 560 -y 880 -defaultsOSRD
+preplace inst xadc_wiz_0 -pg 1 -lvl 1 -x 170 -y 180 -defaultsOSRD
+preplace netloc PWM_0_pwm 1 2 1 N 80
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 360 300 1020 830
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 2 350 1030 820
+preplace netloc rst_ps7_0_50M_interconnect_aresetn 1 1 2 330 1040 790
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 0 3 30 370 310 1050 780
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 2 360 980 810
+preplace netloc ps7_0_axi_periph_M00_AXI 1 0 3 10 1010 NJ 1010 800
+preplace netloc ps7_0_axi_periph_M01_AXI 1 1 2 320 1000 770
+preplace netloc ps7_0_axi_periph_M02_AXI 1 1 2 340 990 760
+preplace netloc processing_system7_0_DDR 1 2 1 760 20n
+preplace netloc processing_system7_0_FIXED_IO 1 2 1 830 40n
+preplace netloc Vaux0_0_1 1 0 1 0 20n
+preplace netloc Vaux12_0_1 1 0 1 -70 140n
+preplace netloc Vaux13_0_1 1 0 1 -80 160n
+preplace netloc Vaux15_0_1 1 0 1 -90 180n
+preplace netloc Vaux1_0_1 1 0 1 -10 40n
+preplace netloc Vaux5_0_1 1 0 1 -20 60n
+preplace netloc Vaux6_0_1 1 0 1 -60 80n
+preplace netloc Vaux8_0_1 1 0 1 -30 100n
+preplace netloc Vaux9_0_1 1 0 1 -40 120n
+preplace netloc Vp_Vn_0_1 1 0 1 -50 80n
+preplace netloc axi_gpio_0_GPIO 1 2 1 820 60n
+levelinfo -pg 1 -110 170 560 850
+pagesize -pg 1 -db -bbox -sgen -230 0 980 1060
+"
+}
+0

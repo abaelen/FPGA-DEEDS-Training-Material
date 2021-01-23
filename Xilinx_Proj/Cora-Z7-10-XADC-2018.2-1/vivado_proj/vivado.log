@@ -1,0 +1,719 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Oct 22 13:03:36 2018
+# Process ID: 1860
+# Current directory: C:/Users/arthur/AppData/Roaming/Xilinx/Vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17728
+# Log file: C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/vivado.log
+# Journal file: C:/Users/arthur/AppData/Roaming/Xilinx/Vivado\vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script 'C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+0 Beta devices matching pattern found, 0 enabled.
+INFO: [Common 17-1463] Init.tcl in C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/init.tcl is not used. Vivado_init.tcl is already sourced.
+start_guissource D:/Experimental/custom_commands/setup.tcl
+# set mode "run"
+# puts "argv: $argv"
+argv: 
+# for {set idx 0} {$idx < [llength $argv]} {incr idx} {
+# 	if {[lindex $argv $idx] == "-mode"} {
+# 		incr idx
+# 		set mode [lindex $argv $idx]
+# 	} else {
+# 		puts "ERROR: unrecognized argument"
+# 	}
+# }
+# if {$mode == "run"} {
+# 	## Iterate through other scripts in this dir and source them with mode=setup
+# 	set script_path [file normalize [info script]]
+# 	set script_dir [file dirname $script_path]
+# 	set file_paths [glob -nocomplain "$script_dir/*.tcl"]
+# 	set exclude_files [list \
+# 		"install.tcl" \
+# 		"setup.tcl" \
+# 		"example.tcl" \
+# 	]
+# 
+# 	foreach path $file_paths {
+# 		set file_name [file tail $path]
+# 		if {[lsearch $exclude_files $file_name] == -1} {
+# 			set argv [list "-mode" "setup"]
+# 			source $path
+# 			set argv [list]
+# 		}
+# 	}
+# } elseif {$mode == "install"} {
+# 	if {[get_gui_custom_commands -quiet digilent_custom_command_setup] != ""} {
+# 		remove_gui_custom_commands digilent_custom_command_setup
+# 	}
+# 	## Create setup custom command, to be displayed in the toolbar
+# 	set cmd_args [list \
+# 		-name digilent_custom_command_setup \
+# 		-menu_name "Setup" \
+# 		-description "Set Up Digilent Custom Commands" \
+# 		-show_on_toolbar \
+# 		-tcl_file [file normalize [info script]] \
+# 	]
+# 	eval create_gui_custom_command $cmd_args
+# }
+## set mode ""
+## for {set idx 0} {$idx < [llength $argv]} {incr idx} {
+## 	if {[lindex $argv $idx] == "-mode"} {
+## 		incr idx
+## 		set mode [lindex $argv $idx]
+## 	} else {
+## 		puts "ERROR: unrecognized argument"
+## 	}
+## }
+## if {$mode == "setup"} {
+## 	puts "Setting up proc digilent_create_release"
+## 	proc digilent_create_release {} {
+## 
+## 		if {[llength [get_projects]] < 1} {
+## 			puts "Error: cannot create release, no project open";
+## 			return
+## 		} elseif {[llength [get_projects]] > 1} {
+## 			puts "Error: cannot create release, multiple projects open"
+## 			return
+## 		}
+## 		
+## 		## CHECK IF BITSTREAM IS GENERATED
+## 		
+## 		set release_dir [file normalize [file dirname [get_property DIRECTORY [get_projects]]]/release]
+## 		set iter 1
+## 		set proj_name [get_property NAME [get_projects]]
+## 		set vivado_version [version -short]
+## 		set zip_path "${release_dir}/${proj_name}-${vivado_version}-${iter}.zip"
+## 		while {[file isfile $zip_path]} {
+## 			incr iter
+## 			
+## 			set zip_path "${release_dir}/${proj_name}-${vivado_version}-${iter}.zip"
+## 		}
+## 		set temp_dir [file normalize [get_property DIRECTORY [get_projects]]/temp]
+## 		
+## 		archive_project $zip_path -temp_dir $temp_dir -force -include_local_ip_cache
+## 		puts "Created release archive $zip_path"
+## 	}
+## } elseif {$mode == "install"} {
+## 	# Remove custom command if it already exists
+## 	if {[get_gui_custom_commands -quiet digilent_release] != ""} {
+## 		remove_gui_custom_commands digilent_release
+## 	}
+## 	
+## 	# Create Custom Command (preserved when vivado is closed)
+## 	set cmd_args [list \
+## 		-name digilent_release \
+## 		-menu_name "Create Release" \
+## 		-description "Create Release ZIP Archive" \
+## 		-show_on_toolbar \
+## 		-command digilent_create_release \
+## 	]
+## 	eval create_gui_custom_command $cmd_args
+## 	
+## 	# Create Arguments, each argument to the process created in setup should be defined here
+## 	# NO ARGUMENTS
+## }
+Setting up proc digilent_create_release
+## set mode ""
+## for {set idx 0} {$idx < [llength $argv]} {incr idx} {
+## 	if {[lindex $argv $idx] == "-mode"} {
+## 		incr idx
+## 		set mode [lindex $argv $idx]
+## 	} else {
+## 		puts "ERROR: unrecognized argument"
+## 	}
+## }
+## if {$mode == "setup"} {
+## 	puts "Setting up proc digilent_vivado_checkin_proc"
+## 	proc digilent_vivado_checkin_proc {} {
+## 		# Collect local sources, move them to ../src/<category>
+## 		# Collect sdk project & BSP & dummy hardware platform, and move them to ../sdk
+## 
+## 		# TODO: handle SDK projects.
+## 
+## 		if {[llength [get_projects]] < 1} {
+## 			puts "Error: cannot create release, no project open"
+## 			return
+## 		} elseif {[llength [get_projects]] > 1} {
+## 			puts "Error: cannot create release, multiple projects open"
+## 			return
+## 		}
+## 		
+## 		#set xpr_path [file normalize [lindex $argv 0]]
+## 		#set proj_file [file tail $xpr_path]
+## 		#set repo_path [file normalize [file dirname $xpr_path]/..]
+## 		set repo_path [file normalize [file dirname [get_property DIRECTORY [get_projects]]]]
+## 		set vivado_version [version -short]
+## 		
+## 		#puts "INFO: Checking project \"$proj_file\" into version control."
+## 		#open_project $xpr_path
+## 
+## 		set required_dirs [list 				\
+## 			$repo_path/proj						\
+## 			$repo_path/src 						\
+## 			$repo_path/src/bd 					\
+## 			$repo_path/src/constraints 			\
+## 			$repo_path/src/ip 					\
+## 			$repo_path/src/hdl 					\
+## 			$repo_path/src/other 				\
+## 			$repo_path/repo 					\
+## 			$repo_path/repo/local 				\
+## 			$repo_path/repo/cache 				\
+## 			$repo_path/sdk						\
+## 		]
+## 		set required_files [list 				\
+## 			$repo_path/proj/.keep				\
+## 			$repo_path/src/bd/.keep				\
+## 			$repo_path/src/constraints/.keep	\
+## 			$repo_path/src/ip/.keep				\
+## 			$repo_path/src/hdl/.keep			\
+## 			$repo_path/src/other/.keep			\
+## 			$repo_path/repo/local/.keep			\
+## 			$repo_path/repo/cache/.keep			\
+## 			$repo_path/sdk/.keep				\
+## 		]
+## 		set files [list]
+## 
+## 		# Create any missing required directories and files
+## 		foreach d $required_dirs {
+## 			if {[file exists $d] == 0} {
+## 				file mkdir $d
+## 			}
+## 		}
+## 		foreach f $required_files {
+## 			if {[file exists $f] == 0} {
+## 				close [open $f "w"]
+## 			}
+## 		}
+## 
+## 		# Save source files, including block design tcl script
+## 		# WARNING: This script does not capture any non-xdc files for block-design projects
+## 		set bd_files [get_files -of_objects [get_filesets sources_1] -filter "NAME=~*.bd"]
+## 		if {[llength $bd_files] > 1} {
+## 			puts "ERROR: This script cannot handle projects containing more than one block design!"
+## 		} elseif {[llength $bd_files] == 1} {
+## 			set bd_file [lindex $bd_files 0]
+## 			open_bd_design $bd_file
+## 			set bd_name [file tail [file rootname [get_property NAME $bd_file]]]
+## 			set script_name "$repo_path/src/bd/${bd_name}.tcl"
+## 			puts "INFO: Checking in ${script_name} to version control."
+## 			write_bd_tcl -force -make_local $script_name
+## 			# TODO: Add support for "Add Module" IPI features (check in hdl files included in sources_1, but not any ip fileset)
+## 		} else {
+## 			foreach source_file [get_files -of_objects [get_filesets sources_1]] {
+## 				set origin [get_property name $source_file]
+## 				set skip 0
+## 				if {[file extension $origin] == ".vhd"} {
+## 					set subdir hdl
+## 				} elseif {[file extension $origin] == ".v"} {
+## 					set subdir hdl
+## 				} elseif {[file extension $origin] != ".bd" && [file extension $origin] != ".xci"} {
+## 					set subdir other
+## 				} else {
+## 					set skip 1
+## 				}
+## 				
+## 				foreach ip [get_ips] {
+## 					set ip_dir [get_property IP_DIR $ip]
+## 					set source_length [string length $source_file]
+## 					set dir_length [string length $ip_dir]
+## 					if {$source_length >= $dir_length && [string range $source_file 0 $dir_length-1] == $ip_dir} {
+## 						set skip 1
+## 					}
+## 				}
+## 				
+## 				if {$skip == 0} {
+## 					puts "INFO: Checking in [file tail $origin] to version control."
+## 					set target $repo_path/src/$subdir/[file tail $origin]
+## 					if {[file exists $target] == 0} { # TODO: this may not be safe; remind users to make sure to delete any unused files from version control
+## 						file copy -force $origin $target
+## 					}
+## 				}
+## 			}
+## 			foreach ip [get_ips] {
+## 				set origin [get_property ip_file $ip]
+## 				set ipname [get_property name $ip]
+## 				set dir "$repo_path/src/ip/$ipname"
+## 				if {[file exists $dir] == 0} {
+## 					file mkdir $dir
+## 				}
+## 				set target $dir/[file tail $origin]
+## 				puts "INFO: Checking in [file tail $origin] to version control."
+## 				if {[file exists $target] == 0} { # TODO: this may not be safe; remind users to make sure to delete any unused files from version control
+## 					file copy -force $origin $target
+## 				}
+## 			}
+## 			# TODO: foreach file in /src/ip, if it wasn't just checked in, delete it
+## 		}
+## 		foreach constraint_file [get_files -of_objects [get_filesets constrs_1]] {
+## 			set origin [get_property name $constraint_file]
+## 			set target $repo_path/src/constraints/[file tail $origin]
+## 			puts "INFO: Checking in [file tail $origin] to version control."
+## 				if {[file exists $target] == 0} { # TODO: this may not be safe; remind users to make sure to delete any unused files from version control
+## 				file copy -force $origin $target
+## 			}
+## 		}
+## 
+## 		# Save project-specific settings into project_info.tcl
+## 		# TODO: will break if multiple projects are open
+## 		#set proj_obj [get_projects [file rootname $proj_file]]
+## 		set proj_obj [get_projects]
+## 		set board_part [current_board_part]
+## 		set part [get_property part $proj_obj]
+## 		set default_lib [get_property default_lib $proj_obj]
+## 		set simulator_language [get_property simulator_language $proj_obj]
+## 		set target_language [get_property target_language $proj_obj]
+## 		puts "INFO: Checking in project_info.tcl to version control."
+## 		set file_name $repo_path/project_info.tcl
+## 		set file_obj [open $file_name "w"]
+## 		puts $file_obj "# This is an automatically generated file used by digilent_vivado_checkout.tcl to set project options"
+## 		puts $file_obj "proc set_digilent_project_properties {proj_name} {"
+## 		puts $file_obj "    set project_obj \[get_projects \$proj_name\]"
+## 		puts $file_obj "	set_property \"part\" \"$part\" \$project_obj"
+## 		puts $file_obj "	set_property \"board_part\" \"$board_part\" \$project_obj"
+## 		puts $file_obj "	set_property \"default_lib\" \"$default_lib\" \$project_obj"
+## 		puts $file_obj "	set_property \"simulator_language\" \"$simulator_language\" \$project_obj"
+## 		puts $file_obj "	set_property \"target_language\" \"$target_language\" \$project_obj"
+## 		puts $file_obj "}"
+## 		close $file_obj
+## 
+## 		# if .gitignore does not exist, create it
+## 		if {[file exists "$repo_path/.gitignore"] == 0} {
+## 			puts "WARNING: This repository does not contain a master gitignore. creating one now."
+## 			puts "         if this project contains SDK projects, please edit the gitignore once checkin is complete."
+## 			set file_obj [open "$repo_path/.gitignore" "w"]
+## 			puts $file_obj "# This is a gitignore file automatically generated by digilent_vivado_checkin.tcl"
+## 			puts $file_obj "# Remove this comment block when editing this file; the file will not be overwritten unless deleted"
+## 			puts $file_obj ""
+## 			puts $file_obj "# root"
+## 			puts $file_obj "/*"
+## 			puts $file_obj "!.gitignore"
+## 			puts $file_obj "!.gitmodules"
+## 			puts $file_obj "!README.md"
+## 			puts $file_obj "!LICENSE"
+## 			puts $file_obj "!project_info.tcl"
+## 			puts $file_obj "!proj/"
+## 			puts $file_obj "!repo/"
+## 			puts $file_obj "!sdk/"
+## 			puts $file_obj "!src/"
+## 			puts $file_obj "!digilent-vivado-scripts/"
+## 			puts $file_obj ""
+## 			puts $file_obj "# vivado workspace"
+## 			puts $file_obj "proj/*"
+## 			puts $file_obj ""
+## 			puts $file_obj "# ip repository"
+## 			puts $file_obj "repo/**"
+## 			puts $file_obj "!repo/vivado-library"
+## 			puts $file_obj "repo/vivado-library/**"
+## 			puts $file_obj "!repo/local"
+## 			puts $file_obj "!repo/local/**"
+## 			puts $file_obj "!repo/cache"
+## 			puts $file_obj "repo/cache/**"
+## 			puts $file_obj ""
+## 			puts $file_obj "# version controlled sources"
+## 			puts $file_obj "src/**"
+## 			puts $file_obj "!src/bd"
+## 			puts $file_obj "src/bd/**"
+## 			puts $file_obj "!src/bd/*.tcl"
+## 			puts $file_obj "!src/constraints"
+## 			puts $file_obj "src/constraints/**"
+## 			puts $file_obj "!src/constraints/*.xdc"
+## 			puts $file_obj "!src/hdl"
+## 			puts $file_obj "src/hdl/**"
+## 			puts $file_obj "!src/hdl/*.v"
+## 			puts $file_obj "!src/hdl/*.vhd"
+## 			puts $file_obj "!src/ip"
+## 			puts $file_obj "!src/ip/*"
+## 			puts $file_obj "src/ip/*/**"
+## 			puts $file_obj "!src/ip/**/*.xci"
+## 			puts $file_obj "!src/other"
+## 			puts $file_obj "!src/other/**"
+## 			puts $file_obj ""
+## 			puts $file_obj "# sdk application sources"
+## 			puts $file_obj "sdk/**"
+## 			puts $file_obj "!sdk/appsrc"
+## 			puts $file_obj "!sdk/appsrc/**"
+## 			puts $file_obj ""
+## 			puts $file_obj "# maintain required directories"
+## 			puts $file_obj "!**/.keep"
+## 			close $file_obj
+## 		}
+## 		puts "INFO: Project has been checked into repo ${repo_path}"
+## 
+## 	}
+## } elseif {$mode == "install"} {
+## 	# Remove custom command if it already exists
+## 	if {[get_gui_custom_commands -quiet digilent_test] != ""} {
+## 		remove_gui_custom_commands digilent_test
+## 	}
+## 	
+## 	# Create Custom Command (preserved when vivado is closed)
+## 	set cmd_args [list \
+## 		-name digilent_test \
+## 		-menu_name "Checkin" \
+## 		-description "Check In Project Repository to Git" \
+## 		-show_on_toolbar \
+## 		-command digilent_vivado_checkin_proc \
+## 	]
+## 	eval create_gui_custom_command $cmd_args
+## }
+Setting up proc digilent_vivado_checkin_proc
+## set mode ""
+## for {set idx 0} {$idx < [llength $argv]} {incr idx} {
+## 	if {[lindex $argv $idx] == "-mode"} {
+## 		incr idx
+## 		set mode [lindex $argv $idx]
+## 	} else {
+## 		puts "ERROR: unrecognized argument"
+## 	}
+## }
+## set script_name [file tail [file normalize [info script]]]
+## set command_name [file rootname ${script_name}]
+## set proc_name ${command_name}_proc
+## if {$mode == "setup"} {
+## 	proc digilent_vivado_checkout_proc {repo_path} {
+## 		# TODO: handle SDK projects.
+## 
+## 		#set xpr_path [file normalize [lindex $argv 0]]
+## 		#set repo_path [file normalize [lindex $argv 1]]
+## 		##set vivado_version [lindex $argv 2]
+## 		#set vivado_year [lindex [split $vivado_version "."] 0]
+## 		
+## 		
+## 		set xpr_path "$repo_path/proj/[file tail $repo_path].xpr"
+## 		set proj_name [file rootname [file tail $xpr_path]]
+## 		set vivado_year [file rootname [version -short]]
+## 		
+## 		#Validate repo path
+## 		if {[file exists $xpr_path]} {
+## 			return
+## 		}
+## 		
+## 		puts "INFO: Creating new project \"$proj_name\" in [file dirname $xpr_path]"
+## 
+## 		# Create project
+## 		create_project $proj_name [file dirname $xpr_path]
+## 
+## 		# Capture board information for the project
+## 		puts "INFO: Capturing board information from $repo_path/project_info.tcl"
+## 		source $repo_path/project_info.tcl
+## 		set_digilent_project_properties $proj_name
+## 		set obj [get_projects $proj_name]
+## 		set part_name [get_property "part" $obj]
+## 
+## 		# Uncomment the following 3 lines to greatly increase build speed while working with IP cores (and/or block diagrams)
+## 		puts "INFO: Configuring project IP handling properties"
+## 		set_property "corecontainer.enable" "0" $obj
+## 		set_property "ip_cache_permissions" "read write" $obj
+## 		set_property "ip_output_repo" "[file normalize "$repo_path/repo/cache"]" $obj
+## 
+## 		# Create 'sources_1' fileset (if not found)
+## 		if {[string equal [get_filesets -quiet sources_1] ""]} {
+## 			puts "INFO: Creating sources_1 fileset"
+## 			create_fileset -srcset sources_1
+## 		}
+## 
+## 		# Create 'constrs_1' fileset (if not found)
+## 		if {[string equal [get_filesets -quiet constrs_1] ""]} {
+## 			puts "INFO: Creating constrs_1 fileset"
+## 			create_fileset -constrset constrs_1
+## 		}
+## 
+## 		# Set IP repository paths
+## 		puts "INFO: Setting IP repository paths"
+## 		set obj [get_filesets sources_1]
+## 		set_property "ip_repo_paths" "[file normalize $repo_path/repo]" $obj
+## 
+## 		# Refresh IP Repositories
+## 		puts "INFO: Refreshing IP repositories"
+## 		update_ip_catalog -rebuild
+## 
+## 		# Add hardware description language sources
+## 		puts "INFO: Adding HDL sources"
+## 		add_files -quiet -norecurse $repo_path/src/hdl
+## 
+## 		# Add IPs
+## 		# TODO: handle IP core-container files
+## 		puts "INFO: Adding XCI IP sources"
+## 		add_files -quiet [glob -nocomplain $repo_path/src/ip/*/*.xci]
+## 
+## 		# Add constraints
+## 		puts "INFO: Adding constraints"
+## 		add_files -quiet -norecurse -fileset constrs_1 $repo_path/src/constraints
+## 
+## 		# Recreate block design
+## 		# TODO: handle multiple block designs
+## 		set ipi_tcl_files [glob -nocomplain "$repo_path/src/bd/*.tcl"]
+## 		set ipi_bd_files [glob -nocomplain "$repo_path/src/bd/*/*.bd"]
+## 		if {[llength $ipi_tcl_files] > 1} {
+## 			# TODO: quit and log the error
+## 			puts "ERROR: This script cannot handle projects containing more than one block design!"
+## 		} elseif {[llength $ipi_tcl_files] == 1} {
+## 			# Use TCL script to rebuild block design
+## 			puts "INFO: Rebuilding block design from script"
+## 			# Create local source directory for bd
+## 			if {[file exist "[file rootname $xpr_path].srcs"] == 0} {
+## 				file mkdir "[file rootname $xpr_path].srcs"
+## 			}
+## 			if {[file exist "[file rootname $xpr_path].srcs/sources_1"] == 0} {
+## 				file mkdir "[file rootname $xpr_path].srcs/sources_1"
+## 			}
+## 			if {[file exist "[file rootname $xpr_path].srcs/sources_1/bd"] == 0} {
+## 				file mkdir "[file rootname $xpr_path].srcs/sources_1/bd"
+## 			}
+## 			# Force Non-Remote BD Flow
+## 			set origin_dir [pwd]
+## 			cd "[file rootname $xpr_path].srcs/sources_1"
+## 			set run_remote_bd_flow 0
+## 			source [lindex $ipi_tcl_files 0]
+## 			cd $origin_dir
+## 		} elseif {[llength $ipi_bd_files] > 1} {
+## 			# TODO: quit and log the error
+## 			puts "ERROR: This script cannot handle projects containing more than one block design!"
+## 		} elseif {[llength $ipi_bd_files] == 1} {
+## 			# Add block design from .bd file and sources
+## 			# TODO: import all files rather than adding them
+## 			puts "INFO: Rebuilding block design from BD fileset"
+## 			add_files -norecurse -quiet -fileset sources_1 [glob -nocomplain $repo_path/src/bd/*/*.bd]
+## 			open_bd_design [glob -nocomplain $repo_path/src/bd/*/*.bd]
+## 			set design_name [get_bd_designs]
+## 			set file "$repo_path/src/bd/$design_name/$design_name.bd"
+## 			set file [file normalize $file]
+## 			set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+## 			if { ![get_property "is_locked" $file_obj] } {
+## 				set_property "synth_checkpoint_mode" "Hierarchical" $file_obj
+## 			}
+## 		}
+## 
+## 		# Make sure IPs are upgraded to the most recent version
+## 		foreach ip [get_ips -filter "IS_LOCKED==1"] {
+## 			upgrade_ip -vlnv [get_property UPGRADE_VERSIONS $ip] $ip
+## 			export_ip_user_files -of_objects $ip -no_script -sync -force -quiet
+## 		}
+## 
+## 		# Generate the wrapper
+## 		set bd_files [get_files -of_objects [get_filesets sources_1] -filter "NAME=~*.bd"]
+## 		if {[llength $bd_files] > 1} {
+## 			puts "ERROR: This script cannot handle projects containing more than one block design!"
+## 		} elseif {[llength $bd_files] == 1} {
+## 			set bd_name [get_bd_designs]
+## 			set bd_file [get_files $bd_name.bd]
+## 			set wrapper_file [make_wrapper -files $bd_file -top -force]
+## 			import_files -quiet -force -norecurse $wrapper_file
+## 
+## 			set obj [get_filesets sources_1]
+## 			set_property "top" "${bd_name}_wrapper" $obj
+## 		}
+## 
+## 		# Create 'synth_1' run (if not found)
+## 		if {[string equal [get_runs -quiet synth_1] ""]} {
+## 			puts "INFO: Creating synth_1 run"
+## 			set cmd_args [list \
+## 				-name synth_1 \
+## 				-part $part_name \
+## 				-flow {Vivado Synthesis $vivado_year} \
+## 				-strategy "Vivado Synthesis Defaults" \
+## 				-constrset constrs_1 \
+## 			]
+## 			eval create_run $cmd_args
+## 		} else {
+## 			set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
+## 			set_property flow "Vivado Synthesis $vivado_year" [get_runs synth_1]
+## 		}
+## 		puts "INFO: Configuring synth_1 run"
+## 		set obj [get_runs synth_1]
+## 		set_property "part" $part_name $obj
+## 		set_property "steps.synth_design.args.flatten_hierarchy" "none" $obj
+## 		set_property "steps.synth_design.args.directive" "RuntimeOptimized" $obj
+## 		set_property "steps.synth_design.args.fsm_extraction" "off" $obj
+## 
+## 		# Set the current synth run
+## 		puts "INFO: Setting current synthesis run"
+## 		current_run -synthesis [get_runs synth_1]
+## 
+## 		# Create 'impl_1' run (if not found)
+## 		if {[string equal [get_runs -quiet impl_1] ""]} {
+## 			puts "INFO: Creating impl_1 run"
+## 			set cmd_args [list \
+## 				-name impl_1 \
+## 				-part $part_name \
+## 				-flow {Vivado Implementation $vivado_year} \
+## 				-strategy "Vivado Implementation Defaults" \
+## 				-constrset constrs_1 \
+## 				-parent_run synth_1 \
+## 			]
+## 			eval create_run $cmd_args
+## 		} else {
+## 			set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
+## 			set_property flow "Vivado Implementation $vivado_year" [get_runs impl_1]
+## 		}
+## 		puts "INFO: Configuring impl_1 run"
+## 		set obj [get_runs impl_1]
+## 		set_property "part" $part_name $obj
+## 		set_property "steps.opt_design.args.directive" "RuntimeOptimized" $obj
+## 		set_property "steps.place_design.args.directive" "RuntimeOptimized" $obj
+## 		set_property "steps.route_design.args.directive" "RuntimeOptimized" $obj
+## 
+## 		# Set the current impl run
+## 		puts "INFO: Setting current implementation run"
+## 		current_run -implementation [get_runs impl_1]
+## 
+## 		puts "INFO: Project created: [file tail $proj_name]"
+## 	}
+## } elseif {$mode == "install"} {
+## 	if {[get_gui_custom_commands -quiet $command_name] != ""} {
+## 		remove_gui_custom_commands $command_name
+## 	}
+## 	set cmd_args [list \
+## 		-name $command_name \
+## 		-menu_name "Checkout" \
+## 		-description "Check Out Project Repository from Git" \
+## 		-show_on_toolbar \
+## 		-command digilent_vivado_checkout_proc \
+## 	]
+## 	eval create_gui_custom_command $cmd_args
+## 	
+## 	set cmd_args [list \
+## 		-command_name $command_name \
+## 		-arg_name ${command_name}_repo_path \
+## 		-comment "Absolute path to cloned repository to check out from version control" \
+## 	]
+## 	eval create_gui_custom_command_arg $cmd_args
+## }ddigilent_vivado_checkout_proc "D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC"
+INFO: Creating new project "Cora-Z7-10-XADC" in D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+create_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 926.078 ; gain = 74.105
+INFO: Capturing board information from D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/project_info.tcl
+# proc set_digilent_project_properties {proj_name} {
+#     set project_obj [get_projects $proj_name]
+# 	set_property "part" "xc7z010clg400-1" $project_obj
+# 	set_property "board_part" "digilentinc.com:cora-z7-10:part0:1.0" $project_obj
+# 	set_property "default_lib" "xil_defaultlib" $project_obj
+# 	set_property "simulator_language" "Mixed" $project_obj
+# 	set_property "target_language" "Verilog" $project_obj
+# }
+INFO: Configuring project IP handling properties
+INFO: Setting IP repository paths
+INFO: Refreshing IP repositories
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/repo'.
+INFO: Adding HDL sources
+INFO: Adding XCI IP sources
+INFO: Adding constraints
+INFO: Rebuilding block design from script
+INFO: [BD_TCL-3] Currently there is no design <design_1> in project, so creating one...
+Wrote  : <D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.srcs/sources_1/bd/design_1/design_1.bd> 
+create_bd_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Mlaunch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+[Mon Oct 22 13:10:17 2018] Launched clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+clk_wiz_0_synth_1: D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-Pmod-VGA/proj/Cora-Z7-10-Pmod-VGA.runs/clk_wiz_0digilent_create_release
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-Basic-IO/proj/temp' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [Coretcl 2-1211] Creating project copy fodigilent_creadigilent_create_release
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'D:/Github/releases/in-work/Cora-Z7/Cora-Z7-07S-Pmod-VGA/proj/temp' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/releases/in-work/Cora-Z7/Cora-Z7-07S-Pmod-VGA/repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [Coretcl 2-1211] Creating project copy for archival...
+INFO: [Coretcl 2-1213] Including run results for 'synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'clk_wiz_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'impl_1'
+INFO: [Coretcl 2-133] re-setting run 'clk_wiz_0_impl_1'...
+INFO: [Coretcl 2-1212] Importing remotely added design sources and verilog include files (if any)...
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'clk_wiz_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'constrs_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sources_1'
+INFO: [Coretcl 2-1209] Adding archive summary file to the project...
+INFO: [Coretcl 2-1214] Preparing project files for archive...
+INFO: [Coretcl 2-1210] Compressing project files and data...
+INFO: [Coretcl 2-1215] Project archived (D:/Github/releases/in-work/Cora-Z7/Cora-Z7-07S-Pmod-VGA/release/Cora-Z7-07S-Pmod-VGA-2018.2-1.zip)
+INFO: [Coretcl 2-1216] To view the archive summary log in GUI, double click on 'Design Sources->Text->archive_project_summary.txt', or open this file from the archived project directory.
+archive_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1131.227 ; gain = 37.238
+Created release archive D:/Github/releases/in-work/Cora-Z7/Cora-Z7-07S-Pmod-VGA/release/Cora-Z7-07S-Pmod-VGA-2018.2-1.zip
+IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/repo'.
+report_ip_status -name ip_status
+update_compile_order -fileset sources_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.srcs/sources_1/bd/design_1/synth/design_1.v
+VHDL Output written to : D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.srcs/sources_1/bd/design_1/sim/design_1.v
+VHDL Output written to : D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PWM_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_50M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xadc_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'd:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Mon Oct 22 13:10:45 2018] Launched design_1_processing_system7_0_0_synth_1, design_1_PWM_0_0_synth_1, design_1_xadc_wiz_0_0_synth_1, design_1_axi_gpio_0_0_synth_1, design_1_rst_ps7_0_50M_0_synth_1, design_1_xbar_0_synth_1, design_1_auto_pc_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_processing_system7_0_0_synth_1: D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.runs/design_1_processing_system7_0_0_synth_1/runme.log
+design_1_PWM_0_0_synth_1: D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.runs/design_1_PWM_0_0_synth_1/runme.log
+design_1_xadc_wiz_0_0_synth_1: D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.runs/design_1_xadc_wiz_0_0_synth_1/runme.log
+design_1_axi_gpio_0_0_synth_1: D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.runs/design_1_axi_gpio_0_0_synth_1/runme.log
+design_1_rst_ps7_0_50M_0_synth_1: D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.runs/design_1_rst_ps7_0_50M_0_synth_1/runme.log
+design_1_xbar_0_synth_1: D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.runs/design_1_xbar_0_synth_1/runme.log
+design_1_auto_pc_0_synth_1: D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.runs/design_1_auto_pc_0_synth_1/runme.log
+synth_1: D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.runs/synth_1/runme.log
+[Mon Oct 22 13:10:45 2018] Launched impl_1...
+Run output will be captured here: D:/Github/releases/in-work/Cora-Z7/Cora-Z7-10-XADC/proj/Cora-Z7-10-XADC.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1481.344 ; gain = 88.500
+digilent_create_release
+INFO: [Coretcl 2-137] starting archdigilent_create_release
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'D:/Github/releases/in-work/Cora-Z7/Cora-Z7-07S-XADC/proj/temp' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Github/releases/in-work/Cora-Z7/Cora-Z7-07S-XADC/repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [Coretcl 2-1213] Including run results for 'synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_processing_system7_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_PWM_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_xadc_wiz_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_axi_gpio_0_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_rst_ps7_0_50M_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_xbar_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'design_1_auto_pc_0_synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'impl_1'
+INFO: [Coretcl 2-133] re-setting run 'design_1_processing_system7_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_PWM_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_xadc_wiz_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_axi_gpio_0_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_rst_ps7_0_50M_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_xbar_0_impl_1'...
+INFO: [Coretcl 2-133] re-setting run 'design_1_auto_pc_0_impl_1'...
+INFO: [Coretcl 2-1212] Importing remotely added design sources and verilog include files (if any)...
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_PWM_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_PWM_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_auto_pc_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_auto_pc_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_axi_gpio_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_axi_gpio_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_processing_system7_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_processing_system7_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_rst_ps7_0_50M_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_rst_ps7_0_50M_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_xadc_wiz_0_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_xadc_wiz_0_0'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'design_1_xbar_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'design_1_xbar_0'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'constrs_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'sources_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sources_1'

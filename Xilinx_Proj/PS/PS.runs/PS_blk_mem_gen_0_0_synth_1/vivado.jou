@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Jan  9 16:10:03 2021
+# Process ID: 26008
+# Current directory: C:/Github/FPGA-Elec-Design/Xilinx_Proj/PS/PS.runs/PS_blk_mem_gen_0_0_synth_1
+# Command line: vivado.exe -log PS_blk_mem_gen_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source PS_blk_mem_gen_0_0.tcl
+# Log file: C:/Github/FPGA-Elec-Design/Xilinx_Proj/PS/PS.runs/PS_blk_mem_gen_0_0_synth_1/PS_blk_mem_gen_0_0.vds
+# Journal file: C:/Github/FPGA-Elec-Design/Xilinx_Proj/PS/PS.runs/PS_blk_mem_gen_0_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source PS_blk_mem_gen_0_0.tcl -notrace

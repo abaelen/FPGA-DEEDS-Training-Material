@@ -1,0 +1,79 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Jan 23 11:31:39 2021
+| Host         : Gebruiker-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_xadc_wiz_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_xadc_wiz_0_0 (xilinx.com:ip:xadc_wiz:3.3) from (Rev. 5) to (Rev. 8)
+
+
+
+
+
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Jan 23 11:31:39 2021
+| Host         : Gebruiker-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_rst_ps7_0_50M_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_rst_ps7_0_50M_0 (xilinx.com:ip:proc_sys_reset:5.0) from (Rev. 12) to (Rev. 13)
+
+
+
+
+
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Jan 23 11:31:39 2021
+| Host         : Gebruiker-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_ps7_0_axi_periph_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_ps7_0_axi_periph_0 (xilinx.com:ip:axi_interconnect:2.1) from (Rev. 18) to (Rev. 23)
+
+
+
+
+
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Jan 23 11:31:39 2021
+| Host         : Gebruiker-PC running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_axi_gpio_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_axi_gpio_0_0 (xilinx.com:ip:axi_gpio:2.0) from (Rev. 19) to (Rev. 24)
+

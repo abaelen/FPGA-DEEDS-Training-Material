@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Jan  9 16:15:21 2021
+# Process ID: 28856
+# Current directory: C:/Github/FPGA-Elec-Design/Xilinx_Proj/PS/PS.runs/synth_1
+# Command line: vivado.exe -log PS_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source PS_wrapper.tcl
+# Log file: C:/Github/FPGA-Elec-Design/Xilinx_Proj/PS/PS.runs/synth_1/PS_wrapper.vds
+# Journal file: C:/Github/FPGA-Elec-Design/Xilinx_Proj/PS/PS.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source PS_wrapper.tcl -notrace
